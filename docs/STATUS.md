@@ -1,9 +1,11 @@
 # 青云开发状态
 
-当前版本：`0.1.0-alpha.9`
+当前版本：`0.1.0-alpha.10`
 产品基线：`qingyun_page_design_v4.3.html`（文件名标为 v4.3，HTML 内部 title 仍标 v4.2；实现按该文件实际页面结构执行）。
 
 ## 已实现
+
+- Alpha.10：思想伙伴接入 DSH 原生会话的按书籍关联流程。每本书保存独立的 DSH session ID；首次创建本书会话时调用工作台官方 `service.newSession()`，再次打开时调用 `service.open(entry.id, sessionId)` 恢复；通过 `sessionBindings` 校验会话确属青云，避免复用普通会话或其他工作台会话。书籍卡片、首页和思想伙伴入口均可打开对应书籍会话；移除书籍不会擅自删除 DSH 会话。
 
 - Alpha.9：增加 EPUB 原生 ZIP/OPF/spine 解析，按阅读顺序提取 XHTML 正文并转换为可阅读章节文本；解析失败时显示原因，不把未解析文件伪装成正文已导入。PDF 仍待接入。
 
@@ -27,15 +29,15 @@
 ## 待接入 / 待验收
 
 - PDF 正文解析与页码定位；EPUB 目录层级 / 精确 CFI 位置定位仍待完善。
-- DSH 模型自动总结、候选观点抽取与用户确认流程。
+- 书籍正文仍保存在青云本地 localStorage，尚未通过已验证的 DSH 公开 API 自动附加到本书会话上下文；当前可复制本书讨论提示并由用户在对应原生会话中发送。DSH 模型自动总结、候选观点抽取与用户确认流程仍待实现。
 - DSH 知识图谱数据源、节点/边映射、图谱选择与跳转。
-- 目标 Windows DSH Desktop 0.2.x 实机安装、工作台注册、会话创建和 UI 验收。
+- 目标 Windows DSH Desktop 0.2.x 实机安装、工作台注册、按书籍会话创建/恢复和 UI 验收。
 
 ## 验证记录
 
 - `package.json` 可解析；包名、Cordis patch 的插件名和客户端模块加载 ID 一致。
 - DSH 客户端声明 `platform: web`，并依赖 `dsh-desktop-workbenches` 的先行加载。
-- Alpha.9 GitHub Actions 工作流运行成功（Run `42736875940`）：JavaScript 语法检查、包元数据校验、npm pack 与 artifact 上传步骤均通过。
+- Alpha.10 的按书籍会话流程已静态审阅；需通过 DSH 0.2.x 实机验证创建、恢复、切换不同书籍会话和跨重启持久化。\n- Alpha.9 GitHub Actions 工作流运行成功（Run `42736875940`）：JavaScript 语法检查、包元数据校验、npm pack 与 artifact 上传步骤均通过。
 - 已下载构建 artifact 并检查其中 `.tgz`：包内包含 `lib/client.js`、`dsh/index.js`、`package.json`、README、LICENSE 与 Cordis patch；包元数据版本为 `0.1.0-alpha.9`。本地再次执行 `node --check` 通过。
 - 阅读器章节识别与关键词定位通过内置样例检查（中文章节标题、Markdown 标题、匹配片段定位）。
 - 以上是静态检查，不等同于目标 Desktop 的运行验收。
