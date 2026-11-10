@@ -1,7 +1,7 @@
 {
   "name": "qingyun-dsh-plugin",
-  "version": "0.1.0-alpha.27",
-  "description": "青云 QINGYUN：基于 DSH Desktop 的阅读工作台与个人知识沉淀工具",
+  "version": "0.3.0",
+  "description": "青云 QINGYUN：基于 DSH Desktop 的阅读工作台与个人知识沉淀工具（侧栏面板版）",
   "type": "module",
   "main": "./dsh/index.js",
   "exports": {
@@ -35,8 +35,10 @@
     },
     "client": {
       "platform": "web",
+      "immediately": true,
       "inject": [
-        "dsh-desktop-workbenches"
+        "@deepseek-ai/dsh-client-ui-sidebar",
+        "@deepseek-ai/dsh-client-ui-conversation"
       ]
     }
   }
