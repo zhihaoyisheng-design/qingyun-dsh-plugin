@@ -1,0 +1,37 @@
+name: Build DSH install package
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Validate package metadata
+        run: |
+          node -e "const p=require('./package.json'); if (!p.name || !p.dsh?.bundle?.patch || !p.dsh?.client?.inject) process.exit(1); console.log(p.name, p.version)"
+      - name: Build npm install archive
+        run: |
+          mkdir -p dist
+          npm pack --pack-destination dist
+          tar -tzf dist/*.tgz
+          tar -xOf dist/*.tgz package/package.json > dist/package.json
+          node -e "const p=require('./dist/package.json'); if (p.name !== 'qingyun-dsh-plugin') process.exit(1)"
+      - name: Upload install archive
+        uses: actions/upload-artifact@v4
+        with:
+          name: qingyun-dsh-plugin-alpha
+          path: dist/*.tgz
+          if-no-files-found: error
+          retention-days: 30
