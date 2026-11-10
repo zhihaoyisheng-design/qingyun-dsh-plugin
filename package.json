@@ -1,7 +1,7 @@
 {
   "name": "qingyun-dsh-plugin",
-  "version": "0.4.0",
-  "description": "青云 QINGYUN：独立 AI 阅读会话与个人知识沉淀工作台",
+  "version": "0.4.1",
+  "description": "青云 QINGYUN：本地 PDF 文字提取/OCR、独立 AI 阅读会话与个人知识沉淀",
   "type": "module",
   "main": "./dsh/index.js",
   "exports": {
@@ -39,7 +39,15 @@
       "inject": [
         "@deepseek-ai/dsh-client-ui-sidebar",
         "@deepseek-ai/dsh-client-ui-conversation"
+      ],
+      "external": [
+        "pdfjs-dist/legacy/build/pdf.js",
+        "tesseract.js"
       ]
     }
+  },
+  "dependencies": {
+    "pdfjs-dist": "3.11.174",
+    "tesseract.js": "5.1.1"
   }
 }
