@@ -1,0 +1,43 @@
+{
+  "name": "qingyun-dsh-plugin",
+  "version": "0.1.0-alpha.1",
+  "description": "青云 QINGYUN：基于 DSH Desktop 的阅读工作台与个人知识沉淀工具",
+  "type": "module",
+  "main": "./dsh/index.js",
+  "exports": {
+    ".": "./dsh/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml"
+  },
+  "files": [
+    "dsh",
+    "lib",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhihaoyisheng-design/qingyun-dsh-plugin.git"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "dsh-workbench",
+    "reading",
+    "knowledge-management",
+    "qingyun"
+  ],
+  "license": "MIT",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "dsh-desktop-workbenches"
+      ]
+    }
+  }
+}
