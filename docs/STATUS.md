@@ -1,6 +1,6 @@
 # 青云开发状态
 
-当前版本：`0.1.0-alpha.14`
+当前版本：`0.1.0-alpha.15`
 产品基线：`qingyun_page_design_v4.3.html`（文件名标为 v4.3，HTML 内部 title 仍标 v4.2；实现按该文件实际页面结构执行）。
 
 ## 已实现
@@ -47,4 +47,4 @@
 - 客户端通过 DSH 官方要求的 `window.__ModuleLoader__.load()` 注册；工作台通过 `desktopWorkbenches.register()` 注册。
 - 原生会话由 DSH 管理；青云不另造假聊天 UI。
 - 不猜测或伪造图谱 API。未获得可验证的数据接口前，知识图谱显示明确空状态。
-- 用户数据保存在客户端本地存储；导出的 JSON 备份可能包含导入正文和个人观点。
+- 用户数据保存在客户端本地存储；导出的 JSON 备份可能包含导入正文和个人观点。\n- Alpha.15：修复 BusinessPanel 未接收 `sendPromptToDsh` 属性的问题；阅读总结页新增直接发送三档总结任务到本书专属 DSH 会话的入口，不再只依赖复制模板。\n
