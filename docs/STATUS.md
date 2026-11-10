@@ -24,7 +24,7 @@
 
 - `package.json` 可解析；包名、Cordis patch 的插件名和客户端模块加载 ID 一致。
 - DSH 客户端声明 `platform: web`，并依赖 `dsh-desktop-workbenches` 的先行加载。
-- 客户端与 Host 入口通过静态 JavaScript 语法检查。
+- 客户端与 Host 入口通过静态 JavaScript 语法检查。\n- 阅读器章节识别与关键词定位通过内置样例检查（中文章节标题、Markdown 标题、匹配片段定位）。
 - 以上是静态检查，不等同于目标 Desktop 的运行验收。
 
 ## 开发约束
