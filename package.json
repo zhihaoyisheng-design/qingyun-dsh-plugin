@@ -1,6 +1,6 @@
 {
   "name": "qingyun-dsh-plugin",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "description": "青云 QINGYUN：本地 PDF 文字提取/OCR、独立 AI 阅读会话与个人知识沉淀",
   "type": "module",
   "main": "./dsh/index.js",
