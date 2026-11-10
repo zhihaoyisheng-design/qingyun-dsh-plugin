@@ -1,6 +1,6 @@
 {
   "name": "qingyun-dsh-plugin",
-  "version": "0.1.0-alpha.7",
+  "version": "0.1.0-alpha.8",
   "description": "青云 QINGYUN：基于 DSH Desktop 的阅读工作台与个人知识沉淀工具",
   "type": "module",
   "main": "./dsh/index.js",
