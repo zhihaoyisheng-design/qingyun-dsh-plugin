@@ -37,7 +37,7 @@
 
 - `package.json` 可解析；包名、Cordis patch 的插件名和客户端模块加载 ID 一致。
 - DSH 客户端声明 `platform: web`，并依赖 `dsh-desktop-workbenches` 的先行加载。
-- Alpha.10：GitHub Actions Run `42737509909` 成功（HEAD `44e75e9d226993aedc63329b172250a22a2bafe9`）；已下载 artifact `13727896702` 并核验 `.tgz` 包结构、包名与版本 `0.1.0-alpha.10`，对包内 `lib/client.js` 执行 `node --check` 通过。以上仍是构建与静态验证，尚未在 DSH Desktop 0.2.x 实机验证创建、恢复、切换不同书籍会话和跨重启持久化。\n- Alpha.9 GitHub Actions 工作流运行成功（Run `42736875940`）：JavaScript 语法检查、包元数据校验、npm pack 与 artifact 上传步骤均通过。
+- Alpha.11：GitHub Actions Run `42739714902` 成功；artifact `13727999531` 已下载并核验，`.tgz` 包名为 `qingyun-dsh-plugin`、版本 `0.1.0-alpha.11`，确认包含 DSH 原生 prompt 调用与“发送本书资料到 DSH”入口；包内 `lib/client.js` 执行 `node --check` 通过。尚未在用户 Windows DSH Desktop 实机验证远程 prompt API 的运行结果。\n- Alpha.10：GitHub Actions Run `42737509909` 成功（HEAD `44e75e9d226993aedc63329b172250a22a2bafe9`）；已下载 artifact `13727896702` 并核验 `.tgz` 包结构、包名与版本 `0.1.0-alpha.10`，对包内 `lib/client.js` 执行 `node --check` 通过。以上仍是构建与静态验证，尚未在 DSH Desktop 0.2.x 实机验证创建、恢复、切换不同书籍会话和跨重启持久化。\n- Alpha.9 GitHub Actions 工作流运行成功（Run `42736875940`）：JavaScript 语法检查、包元数据校验、npm pack 与 artifact 上传步骤均通过。
 - 已下载构建 artifact 并检查其中 `.tgz`：包内包含 `lib/client.js`、`dsh/index.js`、`package.json`、README、LICENSE 与 Cordis patch；包元数据版本为 `0.1.0-alpha.9`。本地再次执行 `node --check` 通过。
 - 阅读器章节识别与关键词定位通过内置样例检查（中文章节标题、Markdown 标题、匹配片段定位）。
 - 以上是静态检查，不等同于目标 Desktop 的运行验收。
