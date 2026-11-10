@@ -35,7 +35,8 @@
 
 - `package.json` 可解析；包名、Cordis patch 的插件名和客户端模块加载 ID 一致。
 - DSH 客户端声明 `platform: web`，并依赖 `dsh-desktop-workbenches` 的先行加载。
-- GitHub Actions 在打包前执行 `node --check` 与包元数据校验；Alpha.9 工作流结果待本轮完成后核实。
+- Alpha.9 GitHub Actions 工作流运行成功（Run `42736875940`）：JavaScript 语法检查、包元数据校验、npm pack 与 artifact 上传步骤均通过。
+- 已下载构建 artifact 并检查其中 `.tgz`：包内包含 `lib/client.js`、`dsh/index.js`、`package.json`、README、LICENSE 与 Cordis patch；包元数据版本为 `0.1.0-alpha.9`。本地再次执行 `node --check` 通过。
 - 阅读器章节识别与关键词定位通过内置样例检查（中文章节标题、Markdown 标题、匹配片段定位）。
 - 以上是静态检查，不等同于目标 Desktop 的运行验收。
 
