@@ -5,7 +5,7 @@
 
 ## 已实现
 
-- Alpha.10：思想伙伴接入 DSH 原生会话的按书籍关联流程。每本书保存独立的 DSH session ID；首次创建本书会话时调用工作台官方 `service.newSession()`，再次打开时调用 `service.open(entry.id, sessionId)` 恢复；通过 `sessionBindings` 校验会话确属青云，避免复用普通会话或其他工作台会话。书籍卡片、首页和思想伙伴入口均可打开对应书籍会话；移除书籍不会擅自删除 DSH 会话。\n- Alpha.11：思想伙伴新增“发送本书资料到 DSH”。用户明确点击后，青云先创建或恢复该书专属会话，再通过 DSH 客户端远程会话 `session.prompt` 接口发送书名、作者、来源说明及最多 48,000 字符正文；明确提示超长内容只是节选、无正文时不得假装读过。会话中仍显示 DSH 原生 conversation 节点，青云不伪造 AI 回复。
+- Alpha.10：思想伙伴接入 DSH 原生会话的按书籍关联流程。每本书保存独立的 DSH session ID；首次创建本书会话时调用工作台官方 `service.newSession()`，再次打开时调用 `service.open(entry.id, sessionId)` 恢复；通过 `sessionBindings` 校验会话确属青云，避免复用普通会话或其他工作台会话。书籍卡片、首页和思想伙伴入口均可打开对应书籍会话；移除书籍不会擅自删除 DSH 会话。- Alpha.11：思想伙伴新增“发送本书资料到 DSH”。用户明确点击后，青云先创建或恢复该书专属会话，再通过 DSH 客户端远程会话 `session.prompt` 接口发送书名、作者、来源说明及最多 48,000 字符正文；明确提示超长内容只是节选、无正文时不得假装读过。会话中仍显示 DSH 原生 conversation 节点，青云不伪造 AI 回复。
 
 - Alpha.9：增加 EPUB 原生 ZIP/OPF/spine 解析，按阅读顺序提取 XHTML 正文并转换为可阅读章节文本；解析失败时显示原因，不把未解析文件伪装成正文已导入。PDF 仍待接入。
 
