@@ -21,6 +21,10 @@
 
 本包遵循 DSH Desktop 工作台开发规范。客户端入口为已提交的单文件 lib/client.js。
 
+仓库地址： https://github.com/zhihaoyisheng-design/qingyun-dsh-plugin
+
+在 DSH Desktop 中可通过「插件 → 添加插件」粘贴上述 GitHub 仓库地址安装。当前仍是 alpha，建议先在测试环境验证，不要把尚未完成的 AI 自动总结或知识图谱当成已具备功能。
+
 官方规范：
 - https://dshdesktop.com/workbench/docs/development/
 - https://dshdesktop.com/workbench/docs/quickstart/
